@@ -10,15 +10,15 @@
 kakao.oauth.login.redirectUrl=YOUR_REDIRECT_URI  # 로그인 버튼 누르고 redirect 되는 uri
 kakao.oauth.appKey=YOUR_APP_KEY
 ```
-## 프로젝트 실행
-#### 1. `http://localhost:8080` 접속
+## 1. 카카오 로그인 및 인증코드 받기
+1. `http://localhost:8080` 접속하고 로그인 버튼을 클릭하면 카카오 로그인 페이지가 나타납니다. 
 <img src="./images/login.png" width="60%">
-   
-#### 2. 로그인 버튼을 클릭하면 로그인 화면으로 이동
-<img src="./images/login-page.png" width="60%">
 
-#### 3. 로그인 후 인증 코드를 받음
+2. 로그인 후에는 인증 코드가 발급 됩니다.
 <img src="./images/code.png" width="60%">
+
+## 2. Swagger-ui 로 api 호출하기
+2-1. `http://localhost:8080/swagger-ui.html` 접속하면
 
 #### 4. `http://localhost:8080/swagger-ui.html` 접속
 <img src="./images/swagger.png" width="60%">
