@@ -26,7 +26,7 @@ public class AuthApi {
      * @param authTokenRequest
      * @return
      */
-    @ApiOperation(value = "사용자 토큰 요청", notes = "사용자 토큰 요청")
+    @ApiOperation(value = "1. 사용자 토큰 요청", notes = "1. 사용자 토큰 요청")
     @PostMapping(value = "token", produces = "application/json")
     public ResponseEntity token(@RequestBody AuthTokenRequest authTokenRequest) {
         RestTemplate restTemplate = new RestTemplateBuilder().build();
@@ -60,7 +60,7 @@ public class AuthApi {
      * @param accessToken   사용자 토큰 요청에서 받은 access_token
      * @return
      */
-    @ApiOperation(value = "access token 정보 요청", notes = "access token 정보 요청")
+    @ApiOperation(value = "2. access token 정보 요청", notes = "2. access token 정보 요청")
     @GetMapping(value = "access_token_info", produces = "application/text")
     public ResponseEntity accessTokenInfo(@RequestParam String accessToken) {
 
