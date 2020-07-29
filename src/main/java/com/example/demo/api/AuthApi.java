@@ -1,21 +1,19 @@
 package com.example.demo.api;
 
 import com.example.demo.entity.AuthTokenRequest;
-import io.swagger.annotations.ApiModelProperty;
+import com.example.demo.enums.PropertyKey;
+import com.google.gson.Gson;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.thymeleaf.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 @Slf4j
 @RestController
@@ -86,6 +84,50 @@ public class AuthApi {
                 String.class
         );
 
+    }
+
+    /**
+     * 요청 'property_keys' 에 따른 사용자 정보 요청
+     * property_keys 는 enum 타입으로 선택 제한 하도록 함
+     *
+     * @param accessToken
+     * @param propertyKeys
+     * @return
+     */
+    @ApiOperation(value = "3. 사용자 정보 요청", notes = "property_keys 값에 따른 사용자의 정보 요청")
+    @GetMapping(value = "user")
+    public ResponseEntity user(@RequestParam String accessToken, @RequestParam(required = false) PropertyKey[] propertyKeys) {
+
+        RestTemplate restTemplate = new RestTemplateBuilder().build();
+
+        ArrayList<String> properties = new ArrayList<>();
+
+        // enum 타입을 string 으로 바꿔서 arraylist 에 저장
+        for (PropertyKey p : propertyKeys) {
+            properties.add(p.value());
+        }
+
+        // 헤더에 accessToken 담기 (Admin 키도 가능)
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(accessToken);
+
+        // 요청 uri 생성
+        UriComponents builder = UriComponentsBuilder.newInstance()
+                .scheme("https").host("kapi.kakao.com")
+                .path("v2/user/me")
+                .queryParam("property_keys", new Gson().toJson(properties))
+                .build();
+
+        log.info("Request URI: {}", builder.toUriString());
+
+        HttpEntity request = new HttpEntity(headers);
+
+        return restTemplate.exchange(
+                builder.toUriString(),
+                HttpMethod.GET,
+                request,
+                String.class
+        );
     }
 
 }
