@@ -3,6 +3,10 @@ kakao oauth 를 활용한 로그인 API 작성 및 호출 방법 입니다.
 ## Reference
 [카카오 로그인](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api)
 
+## 시스템 환경
+* Java 8
+* Spring boot 2.3.2
+
 ## 프로젝트 설정
 `application.properties` 설정
 
