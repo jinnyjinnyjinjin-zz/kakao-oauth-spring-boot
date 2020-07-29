@@ -35,7 +35,7 @@ kakao.oauth.appKey=YOUR_APP_KEY
   "refresh_token_expires_in": 5183999
 }
 ```
-### 2-2 Access token 정보 요청
+### 2-2. Access token 정보 요청
 앞서 발급 받은 access token 에 대한 정보를 요청 합니다. 해당 토큰의 유효성 검증이나 부가 정보를 얻기 위해 호출 합니다.
 <img src="./images/swagger-2.png" width="100%">
 결과예시:
@@ -48,7 +48,7 @@ kakao.oauth.appKey=YOUR_APP_KEY
   "appId": 12345
 }
 ```
-### 2-3 사용자 정보 요청
+### 2-3. 사용자 정보 요청
 발급 받은 access token 이나 admin key 를 가지고 사용자에 대한 부가 정보를 요청할 수 있습니다. 이 때, `property_keys` 를 파라미터로 원하는 정보만 요청이 가능 합니다. (여러개의 property_key를 파라미터로 전송 가능합니다.)
 property_keys 가 없으면 사용자의 모든 정보를 가져옵니다. 예제에서는 property_key 로 'kakao_acount.email' 을 요청한 결과입니다.   
 [property_keys 파라미터 정보](https://developers.kakao.com/docs/latest/ko/user-mgmt/rest-api)
