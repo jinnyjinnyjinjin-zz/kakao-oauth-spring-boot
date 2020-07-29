@@ -62,7 +62,7 @@ public class AuthApi {
      * @param accessToken   사용자 토큰 요청에서 받은 access_token
      * @return
      */
-    @ApiOperation(value = "access token 요청", notes = "access token 요청")
+    @ApiOperation(value = "access token 정보 요청", notes = "access token 정보 요청")
     @GetMapping(value = "access_token_info", produces = "application/text")
     public ResponseEntity accessTokenInfo(@RequestParam String accessToken) {
 
