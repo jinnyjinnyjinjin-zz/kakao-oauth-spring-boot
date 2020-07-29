@@ -1,5 +1,5 @@
 # 카카오 로그인 API
-
+kakao oauth 를 활용한 로그인 API 작성 및 호출 방법 입니다.
 ## Reference
 [카카오 로그인](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api)
 
