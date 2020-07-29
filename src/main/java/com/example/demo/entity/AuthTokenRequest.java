@@ -11,6 +11,10 @@ import lombok.Setter;
 @Builder
 public class AuthTokenRequest {
 
+    @ApiModelProperty(notes = "Optional", example = "authorization_code")
+    @SerializedName("grant_type")
+    private String grantType;
+
     @SerializedName("client_id")
     private String clientId;
 
