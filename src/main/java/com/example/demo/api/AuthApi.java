@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class AuthApi {
 
     /**
-     * 사용자 토큰 요청
+     * 1. 사용자 토큰 요청
      *
      * @param authTokenRequest
      * @return
@@ -55,7 +55,7 @@ public class AuthApi {
     }
 
     /**
-     * access token 정보 요청
+     * 2. access token 정보 요청
      *
      * @param accessToken   사용자 토큰 요청에서 받은 access_token
      * @return
